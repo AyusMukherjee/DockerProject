@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3   
+
+
+      - name: Build Docker image
+        run: docker build -t docker-lab-5154.
+
+      - name: Push Docker image to Docker Hub
+        run: docker push docker-lab-5154
